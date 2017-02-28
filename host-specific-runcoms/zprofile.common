@@ -1,5 +1,7 @@
 # common aliases
 alias digitalocean='ssh shiva@shiv.me'
+alias startvnc='vncserver  :1 -passwordfile ~/.vnc/passwd'
+alias stopvnc='vncserver -kill :1'
 
 # Dealing with C
 alias gen-cscope='find . -iname '\''*.c'\'' -o -iname '\''*.cpp'\'' -o -iname '\''*.cc'\'' -o -iname '\''*.h'\'' -o -iname '\''*.hpp'\'' > cscope.files && cscope -b -i cscope.files -f cscope.out'
