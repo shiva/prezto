@@ -1,8 +1,17 @@
 
-CARGO_HOME=~/.cargo/
-if [[ -d $CARGO_HOME ]]; then
-  path=(
-    $CARGO_HOME/bin
-    $path
+add_folder_to_path()
+{
+  FOLDER=$1
+  shift;
+  if [[ -d $FOLDER ]]; then
+    path=(
+        $FOLDER
+        $path
     )
-fi
+  fi
+}
+
+add_folder_to_path ~/.cargo/bin
+add_folder_to_path ~/.local/bin
+
+alias work='cd ~/dev/rt-planner/rt-planner-rest-server'
