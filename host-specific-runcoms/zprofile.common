@@ -13,3 +13,4 @@ alias remove-ws-in-last-commit= 'for f in `git show --name-only --pretty=""`; do
 
 # Docker
 alias docker-ip="docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' " # needs docker instance name/id
+
