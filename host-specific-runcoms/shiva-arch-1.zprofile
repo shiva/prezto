@@ -1,4 +1,6 @@
 
+echo "Configuring $HOST specific zprofile env"
+
 add_folder_to_path()
 {
   FOLDER=$1

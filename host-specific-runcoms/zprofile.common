@@ -1,7 +1,12 @@
+echo "Configuring common zprofile env"
+
 # common aliases
 alias digitalocean='ssh shiva@shiv.me'
 alias startvnc='vncserver  :1 -passwordfile ~/.vnc/passwd'
 alias stopvnc='vncserver -kill :1'
+
+# File manipulation
+alias count-files-by-type='find . -type f | sed -n "s/..*\.//p" | sort | uniq -c'
 
 # Dealing with C
 alias gen-cscope='find . -iname '\''*.c'\'' -o -iname '\''*.cpp'\'' -o -iname '\''*.cc'\'' -o -iname '\''*.h'\'' -o -iname '\''*.hpp'\'' > cscope.files && cscope -b -i cscope.files -f cscope.out'
@@ -13,4 +18,5 @@ alias remove-ws-in-last-commit= 'for f in `git show --name-only --pretty=""`; do
 
 # Docker
 alias docker-ip="docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' " # needs docker instance name/id
+
 
