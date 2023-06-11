@@ -5,11 +5,12 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+export KEYTIMEOUT=1
+
 #
 # Browser
 #
-
-if [[ -z "$BROWSER" && "$OSTYPE" == darwin* ]]; then
+if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
@@ -18,10 +19,10 @@ fi
 #
 
 if [[ -z "$EDITOR" ]]; then
-  export EDITOR='nano'
+  export EDITOR='vim'
 fi
 if [[ -z "$VISUAL" ]]; then
-  export VISUAL='nano'
+  export VISUAL='vim'
 fi
 if [[ -z "$PAGER" ]]; then
   export PAGER='less'
@@ -71,3 +72,16 @@ fi
 if [[ -z "$LESSOPEN" ]] && (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
+
+# 
+# Load common settings
+#
+source "${ZDOTDIR:-$HOME}/.zprezto/host-specific-runcoms/zprofile.common"
+
+#
+# Load host-based settings if exists
+#
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/host-specific-runcoms/${HOST}.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/host-specific-runcoms/${HOST}.zprofile"
+fi
+

@@ -5,9 +5,24 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+zmodload zsh/zprof
+
+if [ -z "$PS1" ]; then
+   return
+fi
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+if which pyenv > /dev/null; then
+    eval "$(pyenv init -)";
+fi
+
+if which rbenv > /dev/null; then
+    eval "$(rbenv init -)";
+fi
+
+# added by Pew
+source $(pew shell_config)
