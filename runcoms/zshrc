@@ -24,5 +24,3 @@ if which rbenv > /dev/null; then
     eval "$(rbenv init -)";
 fi
 
-# added by Pew
-source $(pew shell_config)
